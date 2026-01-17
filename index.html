@@ -7,15 +7,14 @@
     <title>Cross Egre | Diseño y Calidad</title>
     <style>
         :root {
-            /* --- CAMBIO DE COLOR AQUÍ --- */
             --primary: #FF8000;
-            /* Naranja vibrante */
-            /* --------------------------- */
+            /* Naranja vibrante para el branding */
             --dark: #121212;
             --card-bg: #1E1E1E;
             --text: #ffffff;
             --gray: #888;
-            --outline: #4a4a4a;
+            --outline: #222222;
+            /* Color de las líneas de los dibujos técnicos */
         }
 
         * {
@@ -31,7 +30,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- HEADER & HERO --- */
+        /* --- HEADER --- */
         header {
             position: fixed;
             top: 0;
@@ -45,20 +44,17 @@
             border-bottom: 1px solid #333;
         }
 
-        /* Nuevos estilos para el branding del header */
         .header-branding {
             display: flex;
             align-items: center;
             text-decoration: none;
-            /* Por si quisieras hacerlo un enlace al inicio */
         }
 
+        /* IMPORTANTE: Tu logo debe llamarse 'logo.png' y estar en la misma carpeta */
         .header-logo {
             max-height: 50px;
-            /* Ajustado ligeramente */
             width: auto;
             margin-right: 15px;
-            /* Espacio entre logo y texto */
         }
 
         .brand-text {
@@ -70,22 +66,18 @@
             line-height: 1;
             display: flex;
             flex-direction: column;
-            /* Opcional: si quieres CROSS sobre EGRE en movil, quita esto para que quede al lado */
         }
 
-        /* Estilo para la parte "EGRE" en naranja */
         .brand-text .highlight {
             color: var(--primary);
         }
 
-        /* Media query para que en pantallas grandes quede todo en una linea */
         @media (min-width: 768px) {
             .brand-text {
                 flex-direction: row;
                 gap: 8px;
             }
         }
-
 
         .nav-links a {
             color: white;
@@ -107,13 +99,14 @@
             border-radius: 4px;
         }
 
+        /* --- HERO SECTION --- */
         .hero {
             height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* IMPORTANTE: Reemplaza esto con tu imagen de fondo real del collage */
+            /* IMPORTANTE: Tu imagen de fondo debe llamarse 'fondo-catalogo-egre.jpg' */
             background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fondo-catalogo-egre.jpg');
             background-size: cover;
             background-position: center;
@@ -163,7 +156,7 @@
             box-shadow: 0 10px 20px -10px var(--primary);
         }
 
-        /* --- SECCIONES GENERALES --- */
+        /* --- SECCIONES --- */
         section {
             padding: 5rem 5%;
         }
@@ -177,7 +170,7 @@
             letter-spacing: 2px;
         }
 
-        /* --- CATÁLOGO --- */
+        /* --- CATÁLOGO RESTAURADO --- */
         .catalog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -193,6 +186,8 @@
             transition: 0.3s;
             border: 1px solid #333;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -201,10 +196,8 @@
         }
 
         .card-img {
-            height: 280px;
+            height: 250px;
             background: #2a2a2a;
-            /* IMPORTANTE: Usar las fotos recortadas de las chicas aquí */
-            background-image: url('foto-producto-ejemplo.jpg');
             background-size: cover;
             background-position: top center;
         }
@@ -212,6 +205,10 @@
         .card-info {
             padding: 1.5rem;
             text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card-info h3 {
@@ -224,6 +221,27 @@
             font-size: 1.4rem;
             color: var(--primary);
             font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .shipping-card {
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            color: white;
+            border: none;
+        }
+
+        .shipping-card .card-info {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .shipping-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .shipping-card p {
+            font-size: 1rem;
             margin-bottom: 1rem;
         }
 
@@ -245,7 +263,18 @@
             color: #000;
         }
 
-        /* --- PERSONALIZADOR PRO --- */
+        .btn-add.btn-white {
+            border-color: white;
+            color: white;
+        }
+
+        .btn-add.btn-white:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+
+        /* --- PERSONALIZADOR PRO (Con SVGs de alta calidad) --- */
         .customizer-section {
             background: #181818;
         }
@@ -261,7 +290,8 @@
 
         .preview-area {
             flex: 2 1 500px;
-            background: #2a2a2a;
+            /* Fondo claro para que resalten los detalles técnicos del dibujo */
+            background: #ffffff;
             border-radius: 15px;
             padding: 3rem;
             min-height: 600px;
@@ -269,28 +299,46 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .mockup-svg {
             width: 100%;
-            max-width: 550px;
+            max-width: 600px;
             height: auto;
-            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
+            /* Sutil sombra para darle volumen al dibujo */
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
         }
 
+        /* Estilos para las partes del SVG */
         .mockup-svg path,
         .mockup-svg rect,
-        .mockup-svg polygon {
+        .mockup-svg polygon,
+        .mockup-svg circle {
             transition: fill 0.2s ease;
             stroke: var(--outline);
-            stroke-width: 1.5;
+            /* Color de las líneas (negro/gris oscuro) */
+            stroke-width: 1.2;
+            /* Grosor de línea profesional */
             stroke-linecap: round;
             stroke-linejoin: round;
         }
 
+        /* Clase para el color de relleno base (gris muy claro) */
         .base-fill {
-            fill: #f0f0f0;
+            fill: #f8f8f8;
+        }
+
+        /* Estilo específico para las costuras (líneas punteadas) */
+        .stitching {
+            fill: none;
+            stroke: #000000;
+            stroke-width: 0.8;
+            stroke-dasharray: 3, 3;
+            /* Crea el efecto punteado */
+            opacity: 0.6;
+            pointer-events: none;
+            /* Para que no molesten al hacer clic */
         }
 
         .controls-area {
@@ -299,10 +347,6 @@
             padding: 2rem;
             border-radius: 15px;
             border: 1px solid #333;
-        }
-
-        .control-header {
-            margin-bottom: 1.5rem;
         }
 
         .control-header h3 {
@@ -385,13 +429,11 @@
 
     <header>
         <div class="header-branding">
-            <img src="logo.jpeg" alt="Cross Egre Logo" class="header-logo">
+            <img src="logo.png" alt="Cross Egre Logo" class="header-logo">
             <div class="brand-text">
-                <span>Cross</span>
-                <span class="highlight">Egre</span>
+                <span>Cross</span><span class="highlight">Egre</span>
             </div>
         </div>
-
         <nav class="nav-links">
             <a href="#catalogo">Catálogo</a>
             <a href="#disenar" class="btn-nav-cta">Diseñar Ahora</a>
@@ -411,284 +453,277 @@
         <h2 class="section-title">Catálogo Oficial</h2>
         <div class="catalog-grid">
             <div class="product-card">
-                <div class="card-img" style="background-image: url('foto-buzo-basico.jpg')"></div>
+                <div class="card-img" style="background-image: url('foto-buzo1.jpg');"></div>
                 <div class="card-info">
                     <h3>Buzos Básicos</h3>
-                    <span class="price">$17,000</span>
-                    <button class="btn-add">Ver Detalles</button>
+                    <span class="price">ARS 17,000.00</span>
+                    <button class="btn-add">Ver Más</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="card-img" style="background-image: url('foto-campera-tiras.jpg')"></div>
+                <div class="card-img" style="background-image: url('foto-campera1.jpg');"></div>
                 <div class="card-info">
-                    <h3>Campera con Tiras</h3>
-                    <span class="price">$21,500</span>
-                    <button class="btn-add">Ver Detalles</button>
+                    <h3>Campera con tiras</h3>
+                    <span class="price">ARS 21,500.00</span>
+                    <button class="btn-add">Ver Más</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="card-img" style="background-image: url('foto-campera-combinada.jpg')"></div>
+                <div class="card-img" style="background-image: url('foto-campera2.jpg');"></div>
                 <div class="card-info">
-                    <h3>Campera Combinada</h3>
-                    <span class="price">$26,500</span>
-                    <button class="btn-add">Ver Detalles</button>
+                    <h3>Campera combinada</h3>
+                    <span class="price">ARS 26,500.00</span>
+                    <button class="btn-add">Ver Más</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="card-img" style="background-image: url('foto-campera-3colores.jpg')"></div>
+                <div class="card-img" style="background-image: url('foto-campera3.jpg');"></div>
                 <div class="card-info">
-                    <h3>Campera 3 Colores</h3>
-                    <span class="price">$19,500</span>
-                    <button class="btn-add">Ver Detalles</button>
+                    <h3>Campera 3 colores</h3>
+                    <span class="price">ARS 19,500.00</span>
+                    <button class="btn-add">Ver Más</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="card-img" style="background-image: url('foto-campera-univ.jpg')"></div>
+                <div class="card-img" style="background-image: url('foto-campera4.jpg');"></div>
                 <div class="card-info">
-                    <h3>Campera Universitaria</h3>
-                    <span class="price">$21,500</span>
-                    <button class="btn-add">Ver Detalles</button>
+                    <h3>Camperas universitarias</h3>
+                    <span class="price">ARS 21,500.00</span>
+                    <button class="btn-add">Ver Más</button>
                 </div>
             </div>
             <div class="product-card">
-                <div class="card-img" style="background-image: url('foto-buzo-4cortes.jpg')"></div>
+                <div class="card-img" style="background-image: url('foto-buzo2.jpg');"></div>
                 <div class="card-info">
-                    <h3>Buzo 4 Cortes</h3>
-                    <span class="price">$24,500</span>
-                    <button class="btn-add">Ver Detalles</button>
+                    <h3>Buzo 4 cortes</h3>
+                    <span class="price">ARS 24,500.00</span>
+                    <button class="btn-add">Ver Más</button>
+                </div>
+            </div>
+            <div class="product-card shipping-card">
+                <div class="card-info">
+                    <h3>ENVÍOS</h3>
+                    <p>A TODO EL PAÍS</p>
+                    <span class="price" style="color:white;">ARS 0.00</span>
+                    <button class="btn-add btn-white">Más Info</button>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="disenar" class="customizer-section">
-        <h2 class="section-title">Diseñador Interactivo</h2>
+        <h2 class="section-title">Diseñador Técnico</h2>
 
         <div class="customizer-container">
 
             <div class="preview-area">
 
-                <svg id="mockup-campera" class="mockup-svg active-garment" viewBox="0 0 800 600"
+                <svg id="mockup-campera" class="mockup-svg active-garment" viewBox="0 0 700 600"
                     xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <pattern id="ribbing" width="4" height="4" patternUnits="userSpaceOnUse">
-                            <path d="M0,0 L0,4 M2,0 L2,4" stroke="#00000020" stroke-width="1" />
+                        <pattern id="rib-pattern" width="4" height="4" patternUnits="userSpaceOnUse"
+                            patternTransform="rotate(90)">
+                            <line x1="0" y1="0" x2="0" y2="4" stroke="#000000" stroke-width="0.5" opacity="0.3" />
                         </pattern>
                     </defs>
 
                     <g id="campera-front" style="display:block;">
                         <path id="campera-front-inner-hood" class="base-fill"
-                            d="M350,100 Q400,150 450,100 L430,160 Q400,180 370,160 Z" />
+                            d="M288.5,101 C325.5,148 374.5,148 411.5,101 L398,132 C368,155 332,155 302,132 Z" />
                         <path id="campera-front-hood" class="base-fill"
-                            d="M300,150 C300,50 500,50 500,150 L450,160 Q400,180 350,160 Z" />
-                        <path id="campera-front-body-l" class="base-fill"
-                            d="M350,160 L280,200 L300,500 L395,500 L395,175 Z" />
-                        <path id="campera-front-body-r" class="base-fill"
-                            d="M450,160 L520,200 L500,500 L405,500 L405,175 Z" />
-                        <path id="campera-front-sleeve-l" class="base-fill" d="M280,200 L150,450 L220,480 L310,280 Z" />
-                        <path id="campera-front-sleeve-r" class="base-fill" d="M520,200 L650,450 L580,480 L490,280 Z" />
+                            d="M250,140 C250,20 450,20 450,140 L400,155 C350,180 350,180 300,155 Z" />
+
+                        <path id="campera-front-body-l" class="base-fill" d="M348,160 L260,200 L275,480 L348,480 Z" />
+                        <path id="campera-front-pocket-l" class="base-fill"
+                            d="M275,480 L348,480 L348,350 C320,350 290,380 280,420 L275,480 Z" />
+
+                        <path id="campera-front-body-r" class="base-fill" d="M352,160 L440,200 L425,480 L352,480 Z" />
+                        <path id="campera-front-pocket-r" class="base-fill"
+                            d="M425,480 L352,480 L352,350 C380,350 410,380 420,420 L425,480 Z" />
+
+                        <path id="campera-front-sleeve-l" class="base-fill" d="M260,200 L140,440 L190,470 L290,270 Z" />
+                        <path id="campera-front-sleeve-r" class="base-fill" d="M440,200 L560,440 L510,470 L410,270 Z" />
+
                         <g id="campera-front-cuffs">
-                            <rect x="300" y="500" width="200" height="40" class="base-fill" />
-                            <polygon points="150,450 220,480 200,510 130,480" class="base-fill" />
-                            <polygon points="650,450 580,480 600,510 670,480" class="base-fill" />
+                            <rect x="275" y="480" width="150" height="40" class="base-fill" />
+                            <rect x="275" y="480" width="150" height="40" fill="url(#rib-pattern)" />
+                            <path d="M140,440 L190,470 L175,500 L125,470 Z" class="base-fill" />
+                            <path d="M140,440 L190,470 L175,500 L125,470 Z" fill="url(#rib-pattern)" />
+                            <path d="M560,440 L510,470 L525,500 L575,470 Z" class="base-fill" />
+                            <path d="M560,440 L510,470 L525,500 L575,470 Z" fill="url(#rib-pattern)" />
                         </g>
-                        <rect id="campera-front-zipper" x="395" y="160" width="10" height="340" fill="#888"
-                            stroke="none" />
+
+                        <rect x="348" y="160" width="4" height="360" fill="#ccc" stroke="#999" stroke-width="0.5" />
+
+                        <path class="stitching" d="M250,140 C260,160 280,170 300,155" />
+                        <path class="stitching" d="M450,140 C440,160 420,170 400,155" />
+                        <path class="stitching" d="M260,200 C270,240 280,260 290,270" />
+                        <path class="stitching" d="M440,200 C430,240 420,260 410,270" />
                     </g>
 
                     <g id="campera-back" style="display:none;">
                         <path id="campera-back-hood" class="base-fill"
-                            d="M300,150 C300,40 500,40 500,150 L470,180 Q400,200 330,180 Z" />
+                            d="M250,140 C250,30 450,30 450,140 L420,165 C350,190 350,190 280,165 Z" />
                         <path id="campera-back-body" class="base-fill"
-                            d="M330,180 L280,200 L300,500 L500,500 L520,200 L470,180 Z" />
-                        <path id="campera-back-sleeve-l" class="base-fill" d="M280,200 L150,450 L220,480 L310,280 Z" />
-                        <path id="campera-back-sleeve-r" class="base-fill" d="M520,200 L650,450 L580,480 L490,280 Z" />
+                            d="M280,165 L260,200 L275,480 L425,480 L440,200 L420,165 Z" />
+                        <path id="campera-back-sleeve-l" class="base-fill" d="M260,200 L140,440 L190,470 L290,270 Z" />
+                        <path id="campera-back-sleeve-r" class="base-fill" d="M440,200 L560,440 L510,470 L410,270 Z" />
                         <g id="campera-back-cuffs">
-                            <rect x="300" y="500" width="200" height="40" class="base-fill" />
-                            <polygon points="150,450 220,480 200,510 130,480" class="base-fill" />
-                            <polygon points="650,450 580,480 600,510 670,480" class="base-fill" />
+                            <rect x="275" y="480" width="150" height="40" class="base-fill" />
+                            <rect x="275" y="480" width="150" height="40" fill="url(#rib-pattern)" />
+                            <path d="M140,440 L190,470 L175,500 L125,470 Z" class="base-fill" />
+                            <path d="M140,440 L190,470 L175,500 L125,470 Z" fill="url(#rib-pattern)" />
+                            <path d="M560,440 L510,470 L525,500 L575,470 Z" class="base-fill" />
+                            <path d="M560,440 L510,470 L525,500 L575,470 Z" fill="url(#rib-pattern)" />
                         </g>
-                        <text x="400" y="300" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-weight="bold"
-                            font-size="24" style="pointer-events: none;">TU DISEÑO ACÁ</text>
+                        <path class="stitching" d="M250,140 C260,155 270,160 280,165" />
+                        <path class="stitching" d="M450,140 C440,155 430,160 420,165" />
                     </g>
                 </svg>
 
-                <svg id="mockup-buzo" class="mockup-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg"
+                <svg id="mockup-buzo" class="mockup-svg" viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg"
                     style="display:none;">
                     <g id="buzo-front" style="display:block;">
-                        <path id="buzo-front-hood" class="base-fill"
-                            d="M320,160 C320,60 480,60 480,160 L450,190 Q400,220 350,190 Z" />
                         <path id="buzo-front-inner-hood" class="base-fill"
-                            d="M350,190 L400,250 L450,190 Q400,210 350,190 Z" opacity="0.5" />
+                            d="M290,160 L350,210 L410,160 Q350,190 290,160 Z" opacity="0.8" />
+                        <path id="buzo-front-hood" class="base-fill"
+                            d="M260,150 C260,40 440,40 440,150 L410,180 Q350,210 290,180 Z" />
+
                         <path id="buzo-front-body" class="base-fill"
-                            d="M350,190 L280,220 L300,500 L500,500 L520,220 L450,190 Z" />
-                        <path id="buzo-front-sleeve-l" class="base-fill" d="M280,220 L160,460 L230,490 L310,300 Z" />
-                        <path id="buzo-front-sleeve-r" class="base-fill" d="M520,220 L640,460 L570,490 L490,300 Z" />
-                        <path id="buzo-front-pocket" class="base-fill" d="M350,350 L450,350 L480,480 L320,480 Z" />
+                            d="M290,180 L250,210 L270,480 L430,480 L450,210 L410,180 Z" />
+
+                        <path id="buzo-front-sleeve-l" class="base-fill" d="M250,210 L140,450 L190,480 L280,270 Z" />
+                        <path id="buzo-front-sleeve-r" class="base-fill" d="M450,210 L560,450 L510,480 L420,270 Z" />
+
+                        <path id="buzo-front-pocket" class="base-fill" d="M290,350 L410,350 L430,480 L270,480 Z" />
+
                         <g id="buzo-front-cuffs">
-                            <rect x="300" y="500" width="200" height="40" class="base-fill" />
-                            <polygon points="160,460 230,490 210,520 140,490" class="base-fill" />
-                            <polygon points="640,460 570,490 590,520 660,490" class="base-fill" />
+                            <rect x="270" y="480" width="160" height="40" class="base-fill" />
+                            <rect x="270" y="480" width="160" height="40" fill="url(#rib-pattern)" />
+                            <path d="M140,450 L190,480 L175,510 L125,480 Z" class="base-fill" />
+                            <path d="M140,450 L190,480 L175,510 L125,480 Z" fill="url(#rib-pattern)" />
+                            <path d="M560,450 L510,480 L525,510 L575,480 Z" class="base-fill" />
+                            <path d="M560,450 L510,480 L525,510 L575,480 Z" fill="url(#rib-pattern)" />
                         </g>
-                        <g id="buzo-front-drawstrings" stroke="#ccc" stroke-width="3" fill="none">
-                            <path d="M370,190 L370,300" />
-                            <path d="M430,190 L430,300" />
+
+                        <g stroke="#ccc" stroke-width="2.5" fill="none">
+                            <path d="M310,180 L310,280" />
+                            <circle cx="310" cy="180" r="3" fill="#999" stroke="none" />
+                            <path d="M390,180 L390,280" />
+                            <circle cx="390" cy="180" r="3" fill="#999" stroke="none" />
                         </g>
+                        <path class="stitching" d="M295,355 L405,355 L425,475 L275,475 Z" />
                     </g>
 
                     <g id="buzo-back" style="display:none;">
                         <path id="buzo-back-hood" class="base-fill"
-                            d="M320,160 C320,50 480,50 480,160 L460,180 Q400,200 340,180 Z" />
+                            d="M260,150 C260,35 440,35 440,150 L420,170 Q350,190 280,170 Z" />
                         <path id="buzo-back-body" class="base-fill"
-                            d="M340,180 L280,220 L300,500 L500,500 L520,220 L460,180 Z" />
-                        <path id="buzo-back-sleeve-l" class="base-fill" d="M280,220 L160,460 L230,490 L310,300 Z" />
-                        <path id="buzo-back-sleeve-r" class="base-fill" d="M520,220 L640,460 L570,490 L490,300 Z" />
+                            d="M280,170 L250,210 L270,480 L430,480 L450,210 L420,170 Z" />
+                        <path id="buzo-back-sleeve-l" class="base-fill" d="M250,210 L140,450 L190,480 L280,270 Z" />
+                        <path id="buzo-back-sleeve-r" class="base-fill" d="M450,210 L560,450 L510,480 L420,270 Z" />
                         <g id="buzo-back-cuffs">
-                            <rect x="300" y="500" width="200" height="40" class="base-fill" />
-                            <polygon points="160,460 230,490 210,520 140,490" class="base-fill" />
-                            <polygon points="640,460 570,490 590,520 660,490" class="base-fill" />
+                            <rect x="270" y="480" width="160" height="40" class="base-fill" />
+                            <rect x="270" y="480" width="160" height="40" fill="url(#rib-pattern)" />
+                            <path d="M140,450 L190,480 L175,510 L125,480 Z" class="base-fill" />
+                            <path d="M140,450 L190,480 L175,510 L125,480 Z" fill="url(#rib-pattern)" />
+                            <path d="M560,450 L510,480 L525,510 L575,480 Z" class="base-fill" />
+                            <path d="M560,450 L510,480 L525,510 L575,480 Z" fill="url(#rib-pattern)" />
                         </g>
+                        <path class="stitching" d="M260,150 C265,165 275,168 280,170" />
+                        <path class="stitching" d="M440,150 C435,165 425,168 420,170" />
                     </g>
                 </svg>
-
             </div>
 
             <div class="controls-area">
                 <div class="control-header">
-                    <h3>Configuración</h3>
+                    <h3>Configuración Técnica</h3>
                 </div>
-
-                <label style="font-weight:bold; display:block; margin-bottom:0.5rem;">Prenda:</label>
+                <label style="font-weight:bold; display:block; margin-bottom:0.5rem;">Modelo:</label>
                 <div class="garment-selector">
-                    <button class="selector-btn active" onclick="setGarment('campera', this)">Campera Cierre</button>
-                    <button class="selector-btn" onclick="setGarment('buzo', this)">Buzo Canguro</button>
+                    <button class="selector-btn active" onclick="setGarment('campera', this)">Campera Técnica</button>
+                    <button class="selector-btn" onclick="setGarment('buzo', this)">Buzo Hoodie</button>
                 </div>
-
                 <label style="font-weight:bold; display:block; margin-bottom:0.5rem;">Vista:</label>
                 <div class="view-selector">
                     <button class="selector-btn active" onclick="toggleView('front', this)">Frente</button>
                     <button class="selector-btn" onclick="toggleView('back', this)">Espalda</button>
                 </div>
-
                 <hr style="border:0; border-top:1px solid #333; margin: 1.5rem 0;">
-
                 <div class="control-header">
-                    <h3>Colores por Zona</h3>
+                    <h3>Paleta de Colores</h3>
                 </div>
-
                 <div class="color-controls-grid">
-                    <div class="control-group">
-                        <label>Cuerpo Principal</label>
-                        <div class="color-picker-wrapper">
-                            <input type="color" value="#f0f0f0" oninput="updateZoneColor('body', this.value)">
-                        </div>
+                    <div class="control-group"><label>Cuerpo Principal</label>
+                        <div class="color-picker-wrapper"><input type="color" value="#f8f8f8"
+                                oninput="updateZoneColor('body', this.value)"></div>
                     </div>
-                    <div class="control-group">
-                        <label>Mangas</label>
-                        <div class="color-picker-wrapper">
-                            <input type="color" value="#f0f0f0" oninput="updateZoneColor('sleeves', this.value)">
-                        </div>
+                    <div class="control-group"><label>Mangas</label>
+                        <div class="color-picker-wrapper"><input type="color" value="#f8f8f8"
+                                oninput="updateZoneColor('sleeves', this.value)"></div>
                     </div>
-                    <div class="control-group">
-                        <label>Capucha (Exterior)</label>
-                        <div class="color-picker-wrapper">
-                            <input type="color" value="#f0f0f0" oninput="updateZoneColor('hood', this.value)">
-                        </div>
+                    <div class="control-group"><label>Capucha</label>
+                        <div class="color-picker-wrapper"><input type="color" value="#f8f8f8"
+                                oninput="updateZoneColor('hood', this.value)"></div>
                     </div>
-                    <div class="control-group">
-                        <label>Interior / Capucha</label>
-                        <div class="color-picker-wrapper">
-                            <input type="color" value="#aaaaaa" oninput="updateZoneColor('inner-hood', this.value)">
-                        </div>
+                    <div class="control-group"><label>Interior Capucha</label>
+                        <div class="color-picker-wrapper"><input type="color" value="#e0e0e0"
+                                oninput="updateZoneColor('inner-hood', this.value)"></div>
                     </div>
-                    <div class="control-group">
-                        <label>Puños y Cintura</label>
-                        <div class="color-picker-wrapper">
-                            <input type="color" value="#f0f0f0" oninput="updateZoneColor('cuffs', this.value)">
-                        </div>
+                    <div class="control-group"><label>Puños y Cintura (Rib)</label>
+                        <div class="color-picker-wrapper"><input type="color" value="#f8f8f8"
+                                oninput="updateZoneColor('cuffs', this.value)"></div>
                     </div>
-                    <div class="control-group" id="pocket-control" style="display:none;">
-                        <label>Bolsillo Canguro</label>
-                        <div class="color-picker-wrapper">
-                            <input type="color" value="#f0f0f0" oninput="updateZoneColor('pocket', this.value)">
-                        </div>
+                    <div class="control-group"><label>Bolsillos</label>
+                        <div class="color-picker-wrapper"><input type="color" value="#f8f8f8"
+                                oninput="updateZoneColor('pocket', this.value)"></div>
                     </div>
                 </div>
-
-                <button class="btn-cta" style="width: 100%; margin-top: 2.5rem; font-size: 1.1rem;">
-                    <span style="margin-right: 10px;">💾</span> Guardar Mi Diseño
-                </button>
-                <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #666;">*Te pediremos tus datos
-                    en el siguiente paso.</p>
+                <button class="btn-cta" style="width: 100%; margin-top: 2.5rem; font-size: 1.1rem;">Guardar
+                    Especificaciones</button>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; CROSS EGRE. Diseñado para los mejores cursos.</p>
+        <p>&copy; 2026 CROSS EGRE. Calidad Premium para Egresados.</p>
     </footer>
 
     <script>
-        // --- LÓGICA DEL PERSONALIZADOR PRO ---
+        let currentGarment = 'campera';
+        let currentView = 'front';
 
-        let currentGarment = 'campera'; // 'campera' o 'buzo'
-        let currentView = 'front'; // 'front' o 'back'
-
-        // Función para cambiar entre Campera y Buzo
         function setGarment(type, btnElement) {
             currentGarment = type;
-
-            // 1. Actualizar botones visualmente
             document.querySelectorAll('.garment-selector .selector-btn').forEach(b => b.classList.remove('active'));
             btnElement.classList.add('active');
-
-            // 2. Mostrar el SVG correcto y ocultar el otro
             document.getElementById('mockup-campera').style.display = type === 'campera' ? 'block' : 'none';
             document.getElementById('mockup-buzo').style.display = type === 'buzo' ? 'block' : 'none';
-
-            // 3. Mostrar/Ocultar controles específicos (Ej: Bolsillo solo para buzo)
-            document.getElementById('pocket-control').style.display = type === 'buzo' ? 'block' : 'none';
-
-            // 4. Asegurar que la vista actual (frente/espalda) se mantenga en la nueva prenda
             toggleView(currentView, document.querySelector(`.view-selector .selector-btn[onclick*="${currentView}"]`));
         }
 
-        // Función para cambiar entre Frente y Espalda
         function toggleView(view, btnElement) {
             currentView = view;
-
-            // 1. Actualizar botones
             if (btnElement) {
                 document.querySelectorAll('.view-selector .selector-btn').forEach(b => b.classList.remove('active'));
                 btnElement.classList.add('active');
             }
-
-            // 2. Determinar qué ID mostrar y cuál ocultar basado en la prenda actual
             const idToShow = `${currentGarment}-${view}`;
             const idToHide = `${currentGarment}-${view === 'front' ? 'back' : 'front'}`;
-
-            // 3. Aplicar visibilidad a los grupos (<g>) dentro del SVG activo
             const svgContainer = document.getElementById(`mockup-${currentGarment}`);
             if (svgContainer) {
-                const showGroup = svgContainer.querySelector(`#${idToShow}`);
-                const hideGroup = svgContainer.querySelector(`#${idToHide}`);
-                if (showGroup) showGroup.style.display = 'block';
-                if (hideGroup) hideGroup.style.display = 'none';
+                svgContainer.querySelector(`#${idToShow}`).style.display = 'block';
+                svgContainer.querySelector(`#${idToHide}`).style.display = 'none';
             }
         }
 
-        // Función Principal de Coloreado
-        // "zone" es un nombre genérico (body, sleeves, hood) que mapeamos a los IDs reales
         function updateZoneColor(zone, color) {
-            const garmentPrefix = currentGarment; // 'campera' o 'buzo'
-
-            // Lista de IDs posibles a colorear para esta zona (Frente y Espalda)
+            const garmentPrefix = currentGarment;
             let targetIds = [];
 
-            // Lógica de mapeo de zonas genéricas a IDs específicos del SVG
             switch (zone) {
                 case 'body':
-                    // La campera tiene cuerpo izquierdo y derecho en el frente
                     if (currentGarment === 'campera') {
                         targetIds.push(`${garmentPrefix}-front-body-l`, `${garmentPrefix}-front-body-r`, `${garmentPrefix}-back-body`);
                     } else {
@@ -702,26 +737,26 @@
                     targetIds.push(`${garmentPrefix}-front-hood`, `${garmentPrefix}-back-hood`);
                     break;
                 case 'inner-hood':
-                    // Solo el frente suele mostrar el interior
                     targetIds.push(`${garmentPrefix}-front-inner-hood`);
                     break;
                 case 'cuffs':
-                    // Los puños son grupos (<g>), coloreamos sus hijos (rect, polygon)
                     targetIds.push(`${garmentPrefix}-front-cuffs`, `${garmentPrefix}-back-cuffs`);
                     break;
                 case 'pocket':
-                    // Solo el buzo tiene bolsillo frente
-                    if (currentGarment === 'buzo') targetIds.push(`${garmentPrefix}-front-pocket`);
+                    if (currentGarment === 'campera') {
+                        targetIds.push(`${garmentPrefix}-front-pocket-l`, `${garmentPrefix}-front-pocket-r`);
+                    } else {
+                        targetIds.push(`${garmentPrefix}-front-pocket`);
+                    }
                     break;
             }
 
-            // Aplicar el color a todos los elementos encontrados
             targetIds.forEach(id => {
                 const element = document.getElementById(id);
                 if (element) {
-                    // Si es un grupo (como los puños), colorear sus partes internas
+                    // Si es un grupo (como los puños), coloreamos solo las partes que son "base-fill"
                     if (element.tagName === 'g') {
-                        Array.from(element.children).forEach(child => child.style.fill = color);
+                        Array.from(element.getElementsByClassName('base-fill')).forEach(child => child.style.fill = color);
                     } else {
                         element.style.fill = color;
                     }
